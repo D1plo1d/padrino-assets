@@ -8,7 +8,8 @@ module Padrino
       # Asset Pack needs to be intialized inside the context of the application instance.
       app.assets {
         js_compression :closure, :level => "WHITESPACE_ONLY"
-        prebuild true
+        prebuild false
+        #prebuild true
 
         #lib assets
         serve '/lib/js',     from: '../lib/js'
