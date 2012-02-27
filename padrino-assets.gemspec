@@ -22,13 +22,15 @@ Gem::Specification.new do |s|
   # Infastructure
   s.add_dependency "padrino"
 
-  # Assets
+  # Assets (other then Coffee Script)
   # sinatra-assetpack needs a patch from git so we do not load it here for now.
   s.add_dependency "json"
   s.add_dependency "less"
   s.add_dependency "haml"
   s.add_dependency "erubis"
 
+
+  # Coffee Script
   unless (RUBY_PLATFORM =~ /x86_64-darwin/).nil? # OS X / XCode 4.2.1 Fix (requires external installation of v8. incompatible with -heroku)
     s.requirements << 'v8. For brew users type "brew install v8"'
     s.add_dependency 'libv8'
@@ -38,5 +40,11 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "coffee-script"
+
+
+  # Sprockets
+  s.add_dependency 'sprockets', '>=2.0'
+  s.requirements << "We need a dev version of rack-sprockets. Please add the following line to your Gemfile:\ngem \"rack-sprockets\", require: \"rack/sprockets\", :git => \"https://github.com/kellyredding/rack-sprockets.git\", :branch => \"sp2\""
+
 
 end
