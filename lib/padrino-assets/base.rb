@@ -22,6 +22,7 @@ module Padrino
       end
 
       # Configure Sprockets
+      #Rack::Sprockets::Config.asset_compression
       #Rack::Sprockets.configure do |config|
       #  config.compress = app.settings.assets_compression
         # config.debug = app.settings.assets_debug
@@ -41,7 +42,7 @@ module Padrino
         app.get url do
           path = File.join App.root, "images", params[:image]
           pass unless File.exists? path
-          content_type "image/#{File.extname(path)}"
+          content_type "image/#{File.extname(path).sub(".", "")}"
           send_file path
         end
       end
