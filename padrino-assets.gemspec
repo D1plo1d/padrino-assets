@@ -31,13 +31,13 @@ Gem::Specification.new do |s|
 
 
   # Coffee Script
-  unless (RUBY_PLATFORM =~ /x86_64-darwin/).nil? # OS X / XCode 4.2.1 Fix (requires external installation of v8. incompatible with -heroku)
+  #unless (RUBY_PLATFORM =~ /x86_64-darwin/).nil? # OS X / XCode 4.2.1 Fix (requires external installation of v8. incompatible with -heroku)
     s.requirements << 'v8. For brew users type "brew install v8"'
     s.add_dependency 'libv8'
     s.add_dependency 'therubyracer'
-  else
-    s.add_dependency "therubyracer-heroku" # required for coffee-script
-  end
+  #else
+  #  s.add_dependency "therubyracer-heroku" # required for coffee-script
+  #end
 
   s.add_dependency "coffee-script"
 
